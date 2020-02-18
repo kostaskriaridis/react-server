@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec babel-node server",
-    "webpack": "webpack --watch"
+    "server": "nodemon --exec babel-node server",
+    "watch": "webpack --watch"
   },
   "author": "",
   "license": "ISC",
