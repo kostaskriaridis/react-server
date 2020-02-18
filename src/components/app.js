@@ -1,25 +1,30 @@
-import React, { useState, useCallback } from 'react';
+import React, { Fragment, useState, useCallback } from 'react';
+import PropTypes from 'prop-types';
+import Form from './Form';
+import TodoList from './TodoList';
 
-export default function App() {
-    const [counter, setCounter] = useState(0);
+App.propTypes = {
+    todos: PropTypes.array.isRequired,
+    onAddTodo: PropTypes.func.isRequired,
+    onToggleTodo: PropTypes.func.isRequired,
+    onDeleteTodo: PropTypes.func.isRequired
+};
 
-    const handleDecrement = useCallback(() => {
-        setCounter(prevCounter => prevCounter - 1);
-    }, []);
-
-    const handleIncrement = useCallback(() => {
-        setCounter(prevCounter => prevCounter + 1);
-    }, []);
-
+export default function App({
+    todos,
+    onAddTodo,
+    onToggleTodo,
+    onDeleteTodo
+}) {
     return (
-        <div>
-            <h1>{counter}</h1>
-            <button onClick={handleDecrement}>
-                -
-            </button>
-            <button onClick={handleIncrement}>
-                +
-            </button>
-        </div>
+        <Fragment>
+            <Form
+                buttonText='Add todo'
+                onSubmit={onAddTodo} />
+            <TodoList
+                todos={todos}
+                onToggleTodo={onToggleTodo}
+                onDeleteTodo={onDeleteTodo} />
+        </Fragment>
     );
 }
