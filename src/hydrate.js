@@ -12,7 +12,7 @@ delete window.__REDUX_PRELOADED_STATE__;
 const store = createStore(
     reducer,
     preloadedState,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__({ name: 'TODO_APP' })
 );
 
 ReactDOM.hydrate(

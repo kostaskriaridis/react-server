@@ -30,7 +30,7 @@ export default function AppContainer() {
  */
 function useRedux() {
     const dispatch = useDispatch();
-    const todos = useSelector(state => state);
+    const todos = useSelector(state => state.todos);
 
     const addTodo = useCallback(text => {
         dispatch({
